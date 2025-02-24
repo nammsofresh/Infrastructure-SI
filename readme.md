@@ -44,9 +44,9 @@ Ce document synthétise les quatre projets en cours : **VPN, Routeur, Sauvegarde
 ## Organisation du Travail
 | Nom        | Responsabilité             |
 |------------|---------------------------|
-| Personne 1 | VPN & Sécurisation        |
-| Personne 2 | Routeur & Réseau          |
-| Personne 3 | Sauvegarde & Intranet     |
+| Louis      | VPN & Sécurisation        |
+| Titouan    | Routeur & Réseau          |
+| Felix      | Sauvegarde & Intranet     |
 
 ### Points de suivi
 - Réunions régulières, documentation à jour.
