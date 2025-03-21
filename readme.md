@@ -20,24 +20,21 @@ Le projet repose sur un serveur Ubuntu 24.04 configuré avec plusieurs services 
   - Firewall UFW pour restreindre les accès.
   - Authentification SSH via clés pour limiter les accès non autorisés.
   - Fail2Ban pour bloquer les tentatives d'intrusion.
+  
+mermaid
+graph TD;
+    A[Utilisateur] -->|Connexion VPN| B[WireGuard VPN 🔒];
+    B --> C[Nginx Reverse Proxy 🌍];
+    C -->|Flux musical| D[Navidrome 🎶];
+    C -->|Affichage stats| E[Extranet 📊];
 
-   [ Utilisateur ]
-             │
-             ▼
-    +-----------------+
-    |     VPN (WG)    |  🔒 Sécurise l'accès
-    +-----------------+
-             │
-             ▼
-    +-----------------+
-    |     NGINX RP    |  🌍 Reverse Proxy pour sécuriser Navidrome
-    +-----------------+
-             │
-+------------+------------+
-|                         |
-▼                         ▼
-| Navidrome  🎶  Extranet |
-+-------------------------+
+    subgraph Serveur VPS
+        B
+        C
+        D
+        E
+    end
+
 
 ## 🔧 Déploiement et Configuration
 
