@@ -21,6 +21,7 @@ Le projet repose sur un serveur Ubuntu 24.04 configuré avec plusieurs services 
   - Authentification SSH via clés pour limiter les accès non autorisés.
   - Fail2Ban pour bloquer les tentatives d'intrusion.
 
+```
 +-------------------+       +-------------------+       +-------------------+       +-------------------+
 |                   |       |                   |       |                   |       |                   |
 |     Client        | ----> |       VPN         | ----> | Reverse Proxy     | ----> |     Navidrome      |
@@ -36,6 +37,7 @@ Le projet repose sur un serveur Ubuntu 24.04 configuré avec plusieurs services 
                                                        |  (Interface Web)  |
                                                        |                   |
                                                        +-------------------+
+```
 ## 🔧 Déploiement et Configuration
 
 1. **Installation de Navidrome** : Déploiement via Docker avec un stockage dédié pour les fichiers audio.
