@@ -1,59 +1,43 @@
-# README - Projets Réseaux & Sécurité
+# 📌 Projet : Service de Streaming Musical avec VPN & Extranet de Connexions SSH
 
-Projet réalisé dans le cadre du cours Infrastructure SI par **Louis Chavaroche**, **Titouan Venant** et **Felix Conchy**.
+Ce projet met en place un **service de streaming musical** basé sur **Navidrome**, sécurisé via un **VPN WireGuard**, et complété par un **extranet** affichant les connexions SSH actives sur un **VPS Ubuntu 24.04**.
 
----
+## 🚀 Fonctionnalités
 
-## Introduction
-Ce document synthétise les quatre projets en cours : **VPN, Routeur, Sauvegarde et Intranet/Cloud Privé**. L'objectif est d'assurer une coordination efficace et une bonne compréhension des attentes.
+- **Navidrome** : Plateforme de streaming musicale auto-hébergée accessible via un reverse proxy Nginx.
+- **WireGuard VPN** : Accès sécurisé au serveur et à Navidrome.
+- **Extranet de supervision** : Interface web affichant en temps réel les connexions SSH actives.
+- **Sécurisation du VPS** : Pare-feu, durcissement SSH et isolation des services via Docker.
 
----
+## 🏗️ Architecture du Projet
 
-## 1. Projet VPN (Difficulté : 3)
-- Mise en place d’un **VPN sécurisé** pour l’accès distant.
-- Gestion du **firewall** et **authentification** renforcée (MFA, logs, certificats).
-- **Livrables** : Documentation, serveur VPN fonctionnel, client connecté.
-- **Technos** : OpenVPN, WireGuard, etc.
+Le projet repose sur un serveur Ubuntu 24.04 configuré avec plusieurs services interconnectés :
 
----
+- **Navidrome** : Déployé via Docker et accessible via un reverse proxy Nginx.
+- **WireGuard** : Fournit une connexion sécurisée pour accéder aux services internes.
+- **Extranet PHP** : Interface permettant de surveiller les connexions SSH en cours.
+- **Sécurité** : 
+  - Firewall UFW pour restreindre les accès.
+  - Authentification SSH via clés pour limiter les accès non autorisés.
+  - Fail2Ban pour bloquer les tentatives d'intrusion.
 
-## 2. Projet Routeur (Difficulté : 2)
-- Déploiement d’un **routeur Open Source** avec firewall, DHCP, DNS, VPN.
-- Gestion de **zones sécurisées/non sécurisées** et schéma réseau.
-- **Livrables** : Plan d’adressage, VM routeur, maquette et tests de routage.
-- **Technos** : OPNSense, PFSense, VyOS, etc.
+## 🔧 Déploiement et Configuration
 
----
+1. **Installation de Navidrome** : Déploiement via Docker avec un stockage dédié pour les fichiers audio.
+2. **Mise en place de WireGuard** : Création d'une configuration VPN pour sécuriser les accès.
+3. **Configuration de Nginx** : Mise en place d'un reverse proxy pour sécuriser l'accès à Navidrome.
+4. **Déploiement de l'extranet** : Installation d'un script PHP qui affiche les connexions SSH actives.
+5. **Sécurisation du VPS** : Application des bonnes pratiques de sécurité.
 
-## 3. Projet Sauvegarde (Difficulté : 1)
-- Mise en place d’une **sauvegarde automatisée** des données.
-- Développement d’un **script** pour stockage distant et restauration.
-- **Livrables** : Sauvegarde/restauration fonctionnelles, serveur de stockage, documentation.
-- **Technos** : Rsync, Borg, Restic, etc.
+## 🎯 Objectifs
 
----
+- Offrir un service de streaming musical auto-hébergé et sécurisé.
+- Garantir un accès distant sécurisé via un VPN.
+- Fournir une visibilité sur les connexions SSH en temps réel.
+- Appliquer des mesures de sécurité pour protéger le serveur.
 
-## 4. Projet Intranet/Cloud Privé + Annuaire (Difficulté : 1)
-- Déploiement d’un **cloud privé** avec services internes (mail, agenda, fichiers).
-- Gestion des **utilisateurs** via annuaire (OpenLDAP, AD).
-- **Livrables** : Cloud fonctionnel, gestion des utilisateurs, logs, documentation.
-- **Technos** : NextCloud, OwnCloud, OpenLDAP, AD.
+## 📜 Conclusion
 
----
+Ce projet permet d'expérimenter et de mettre en place plusieurs technologies essentielles pour l'auto-hébergement sécurisé de services en ligne. Il combine la gestion de conteneurs, la mise en place de VPN, l'administration système et la cybersécurité, offrant ainsi une solution complète et robuste.
 
-## Organisation du Travail
-| Nom        | Responsabilité             |
-|------------|---------------------------|
-| Louis      | VPN & Sécurisation        |
-| Titouan    | Routeur & Réseau          |
-| Felix      | Sauvegarde & Intranet     |
-
-### Points de suivi
-- Réunions régulières, documentation à jour.
-- Tests et validation avant livraison.
-
-## Conclusion
-L'aboutissement de ces projets garantira une **infrastructure réseau robuste**, sécurisée et adaptée aux besoins d’une entreprise moderne. La **collaboration** et l’**apprentissage collectif** permettront d’optimiser les compétences de chacun et d’assurer la pérennité des solutions mises en œuvre.
-
----
-
+Projet réalisé par Louis Chavaroche, Titouan Venant, Felix Conchy.
