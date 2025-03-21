@@ -20,22 +20,22 @@ Le projet repose sur un serveur Ubuntu 24.04 configuré avec plusieurs services 
   - Firewall UFW pour restreindre les accès.
   - Authentification SSH via clés pour limiter les accès non autorisés.
   - Fail2Ban pour bloquer les tentatives d'intrusion.
-  
-mermaid
-graph TD;
-    A[Utilisateur] -->|Connexion VPN| B[WireGuard VPN 🔒];
-    B --> C[Nginx Reverse Proxy 🌍];
-    C -->|Flux musical| D[Navidrome 🎶];
-    C -->|Affichage stats| E[Extranet 📊];
 
-    subgraph Serveur VPS
-        B
-        C
-        D
-        E
-    end
-
-
++-------------------+       +-------------------+       +-------------------+       +-------------------+
+|                   |       |                   |       |                   |       |                   |
+|     Client        | ----> |       VPN         | ----> | Reverse Proxy     | ----> |     Navidrome      |
+|                   |       |  (WireGuard)      |       |     Nginx         |       |  (Streaming Audio) |
+|                   |       |                   |       |                   |       |                   |
++-------------------+       +-------------------+       +-------------------+       +-------------------+
+                                                                 |
+                                                                 |
+                                                                 v
+                                                       +-------------------+
+                                                       |                   |
+                                                       |     Extranet      |
+                                                       |  (Interface Web)  |
+                                                       |                   |
+                                                       +-------------------+
 ## 🔧 Déploiement et Configuration
 
 1. **Installation de Navidrome** : Déploiement via Docker avec un stockage dédié pour les fichiers audio.
